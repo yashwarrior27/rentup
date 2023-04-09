@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Interface\ListingInterface;
+use App\Repositories\Repository\ListingRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+       $this->app->bind(ListingInterface::class,function(){
+        return new ListingRepository;
+       });
     }
 
     /**
