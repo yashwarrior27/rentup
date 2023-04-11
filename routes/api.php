@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Listing\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('get-category',[CategoryController::class,'category']);
 Route::get('get-listing',[ListingController::class,'listing']);
